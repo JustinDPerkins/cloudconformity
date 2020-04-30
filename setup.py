@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cloudconformity", 
-    version= "0.1.8",
+    version= "0.1.9",
     author="Justin Perkins",
     author_email="justin_perkins@trendmicro.com",
     description="Cloud Conformity template scanner tool",

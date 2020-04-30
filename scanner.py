@@ -93,7 +93,7 @@ def main():
 
     headers = {
         'Content-Type': 'application/vnd.api+json',
-        'Authorization': 'ApiKey ' + api
+        'Authorization': api
     }
 
     #open file and print contents.
