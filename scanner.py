@@ -72,9 +72,10 @@ def optionG(access,access2,access3, desired_risk):
                                             
 
 def main():
-    file = 'config.ini'
+    currentpath = os.path.dirname(os.path.realpath(__file__))
+    filed = currentpath + r'\config.ini'
     config = ConfigParser()
-    config.read(file)
+    config.read(filed)
     # create cli argument for filepath
     parser = argparse.ArgumentParser(description='Scan a CFT Template')
     parser.add_argument("--scan", 
@@ -87,11 +88,11 @@ def main():
     scan = args.scan
 
     # set Environment variable. 
-    api= config['DEFAULT']['apiKey']
+    api= config['DEFAULT']['ApiKey']
     #API connection for CC
     endpoint = config['DEFAULT']['EndPoint']
-    url = endpoint + '/v1/template-scanner/scan'
-    url2 = endpoint + '/v1/services'
+    url = endpoint + '/template-scanner/scan'
+    url2 = endpoint + '/services'
 
     headers = {
         'Content-Type': 'application/vnd.api+json',
@@ -148,5 +149,3 @@ def main():
 
 if __name__ =="__main__":
     main()
-
-    					
