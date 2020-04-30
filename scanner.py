@@ -1,4 +1,3 @@
-from configparser import ConfigParser
 import sys
 import os
 import requests
@@ -72,10 +71,6 @@ def optionG(access,access2,access3, desired_risk):
                                             
 
 def main():
-    currentpath = os.path.dirname(os.path.realpath(__file__))
-    filed = currentpath + r'\config.ini'
-    config = ConfigParser()
-    config.read(filed)
     # create cli argument for filepath
     parser = argparse.ArgumentParser(description='Scan a CFT Template')
     parser.add_argument("--scan", 
@@ -88,11 +83,13 @@ def main():
     scan = args.scan
 
     # set Environment variable. 
-    api= config['DEFAULT']['ApiKey']
+    api= os.environ.get('apiKey')
+    
+    
     #API connection for CC
-    endpoint = config['DEFAULT']['EndPoint']
-    url = endpoint + '/template-scanner/scan'
-    url2 = endpoint + '/services'
+    endpoint = 'https://us-west-2-api.cloudconformity.com'
+    url = endpoint+'/v1/template-scanner/scan'
+    url2 = endpoint+'/v1/services' 
 
     headers = {
         'Content-Type': 'application/vnd.api+json',

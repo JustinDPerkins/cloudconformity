@@ -6,18 +6,18 @@ This is a python package to Cloud Conformity Template Scanner.
 
 To start using we need to setup the config.ini file first.
 Navigate to the install pip package. <br>
-on Windows-- C:\Users\justinp\AppData\Local\Programs\Python\Python38-32\Lib\site-packages\TemplateScanner <br>
-on MacOS-- /Users/Me/Documents/VirtualEnvs/conformity/lib/python3.7/site-packages/TemplateScanner <br>
-find config.ini
-Add your apiKey and endpoint region.
-For reference on endpoints please check out the conformity API documentation.
+
+Add your apiKey. We have created and environment variable
+```
+api= os.environ.get('apiKey')
+``` 
+
+Endpoint Region is set as US(Oregon - us-west-2)<br>
+<br>
+For reference, check out the conformity API documentation.<br>
 https://github.com/cloudconformity/documentation-api
 
-```
-[DEFAULT]
-apiKey = <your api key>
-EndPoint = 'https://us-west-2-api.cloudconformity.com/v1'
-```
+
 ## Running a scan
 
 Finally, we can scan a CloudFormation Template for misconfigurations before deployment into your AWS infrastructure.
